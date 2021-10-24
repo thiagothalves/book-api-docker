@@ -1,11 +1,11 @@
   services:
-    springapp:
+    app:
       build: .
-      container_name: springapp
+      container_name: app
       environment:
         SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/book-api-docker
       ports:
-        - 8000:8080
+        - 8080:8080
       restart: always
       depends_on:
         - db
@@ -14,11 +14,11 @@
       container_name: db
       environment:
         - POSTGRES_USER=postgres
-        - POSTGRES_PASSWORD=password
+        - POSTGRES_PASSWORD=123456
         - POSTGRES_DB=book-api-docker
         - PGDATA=/var/lib/postgresql/data/pgdata
       ports:
-        - 5000:5432
+        - 5432:5432
       volumes:
         - pgdata:/var/lib/postgresql/data
       restart: always
