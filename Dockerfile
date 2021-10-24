@@ -1,4 +1,3 @@
-FROM openjdk:11
-ADD target/book-api-docker.jar book-api-docker.jar
-ENTRYPOINT ["java", "-jar","book-api-docker.jar"]
-EXPOSE 8080
+FROM adoptopenjdk/openjdk11:alpine-jre
+ADD target/book-api-docker-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
